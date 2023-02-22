@@ -1,0 +1,17 @@
+<h1> Login Form</h1>
+<div>
+  <form [formGroup]="loginForm" (ngSubmit)="loginUser()" class="login">
+    <input type="email" placeholder="enter email" formControlName="user">
+    <br> 
+    <span style="color:red ;" *ngIf="user && user.touched && user.invalid"> This field is not valid</span>
+    <br>
+    <br>
+    <input type="password" placeholder="enter password" formControlName="password">
+    <br> 
+    <span style="color:red ;" *ngIf="password && password.touched && password.invalid"> This field is not valid</span>
+    <br>
+    <br>
+    <input type="button" class="btn btn-primary" value="login" [disabled]="loginForm.invalid" [routerLink]="'infoPage'" (click)="loginUser"/>
+
+  </form>
+</div>

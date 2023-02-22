@@ -1,0 +1,52 @@
+<form [formGroup]="RegisterForm" (ngSubmit)="RegisterUser()">
+    <h1> Registeration Form</h1>
+      <div class="container">
+        <table class="table table-bordered" id="customers">
+          <thead>
+            <tr>
+              <th>
+                Registered Users
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of listData">
+               <td>
+                <span>{{item.Name}}</span>
+               </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <div class="Registration">
+        <label>Name</label>
+        <input type="text" placeholder="enter Name" formControlName="Name">
+        <br> 
+        <span style="color:red ;" *ngIf="Name && Name.touched && Name.invalid"> This field is not valid</span>
+        <br>
+        <label for="">College Name <i>(Optional)</i></label>
+        <input type="text" placeholder="enter collegeName" formControlName="collegeName">
+        <br>
+        <br>
+        <label for="">Degree</label>
+        <select>
+          <option value="" hidden>Enter your degree</option>
+          <option value="B.Tech">B.Tech</option>
+          <option value="B.com">B.com</option>
+          <option value="B.sc">B.sc</option>
+          <option value="B.A">B.A</option>
+        </select>
+        <br>
+        <br>
+        <label for="">Specilization <i>(Optional)</i></label>
+        <input type="text" placeholder="enter specilization" formControlName="specilization">
+        <br>
+        <br>
+        <br>
+        <input type="button" class="btn btn-primary" value="Submit" [disabled]="RegisterForm.invalid"  (click)="onsubmit()"/>
+        <input type="button" class="btn btn-primary" value="cancel" (click)="oncancel()"/>
+  
+      </div>
+    </form>
+  
